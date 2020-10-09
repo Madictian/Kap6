@@ -2,35 +2,30 @@ import java.util.Scanner;
 
 public class Opg6_6 {
     public static void main(String[] args) {
-        displayPattern(10);
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+
+        displayPattern(n);
     }
+    public static void displayPattern(int n){
+        String printAscend = "";
+        String printDescend = "";
+        for (int i = 1; i <= n ;++i){
 
-    public static void displayPattern(int n) {
-        // determine the format width of each digit in pyramid
-        int width = getWidth(n);
-
-        // generate padding of this width
-        String padding = "";
-        for (int i = 0; i < width; i++) {
-            padding += " ";
+            String line = Integer.toString(i);
+            printAscend += line + " ";
+            System.out.println(printAscend);
+            line ="";
         }
-
-        for (int i = 1; i <= n; i++) {
-            // print padding
-            for (int j = 0; j < n - i; j++) {
-                System.out.print(padding);
-            }
-            // print left half-pyramid
-            for (int k = i; k >= 1; k--) {
-                System.out.print(String.format("%-"+width+"d", k));
-            }
-            System.out.println();
-        }
-    }
-
-    private static int getWidth(int n) {
-        StringBuilder s = new StringBuilder(n + "");
-        return s.length() + 1;
-    }
+        for (int i = n; i >= 1 ;--i){
+            for(int m = i; m >= 0; --m){
+                if (m != 0){
+                    System.out.print(m + " ");
+                }else{
+                    System.out.println();
+                }
+}
+}
+}
 }
 
